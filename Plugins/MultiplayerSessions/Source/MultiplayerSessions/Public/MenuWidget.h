@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
+#include "Interfaces/OnlineSessionInterface.h"
 #include "MenuWidget.generated.h"
 
 class UButton;
@@ -25,6 +26,22 @@ protected:
 
 	virtual bool Initialize() override;
 	virtual void OnLevelRemovedFromWorld(ULevel* InLevel, UWorld* InWorld) override;
+
+	//
+	// Callbacks for the menu delegates
+	//
+	UFUNCTION()
+	void OnCreateSession(bool bWasSuccessful);
+
+	void OnFindSessions(const TArray<FOnlineSessionSearchResult>& SessionResults, bool bWasSuccessful);
+
+	void OnJoinSessionComplete(EOnJoinSessionCompleteResult::Type Result);
+
+	UFUNCTION()
+	void OnStartSessionComplete(bool bWasSuccessful);
+
+	UFUNCTION()
+	void OnDestroySessionComplete(bool bWasSuccessful);
 
 private:
 
