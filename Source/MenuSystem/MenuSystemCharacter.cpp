@@ -148,7 +148,7 @@ void AMenuSystemCharacter::OnCreateSessionComplete(FName SessionName, bool bWasS
 {
 	if (bWasSuccessful)
 	{
-		if (GEngine)
+		/*if (GEngine)
 		{
 			GEngine->AddOnScreenDebugMessage(
 				-1,
@@ -156,7 +156,7 @@ void AMenuSystemCharacter::OnCreateSessionComplete(FName SessionName, bool bWasS
 				FColor::Blue,
 				FString::Printf(TEXT("Created session - %s"), *SessionName.ToString())
 			);
-		}
+		}*/
 
 		UWorld* World = GetWorld();
 		if (World)
@@ -166,7 +166,7 @@ void AMenuSystemCharacter::OnCreateSessionComplete(FName SessionName, bool bWasS
 	}
 	else
 	{
-		if (GEngine)
+		/*if (GEngine)
 		{
 			GEngine->AddOnScreenDebugMessage(
 				-1,
@@ -174,7 +174,7 @@ void AMenuSystemCharacter::OnCreateSessionComplete(FName SessionName, bool bWasS
 				FColor::Red,
 				FString::Printf(TEXT("Failed to create session!"))
 			);
-		}
+		}*/
 	}
 }
 
@@ -192,7 +192,7 @@ void AMenuSystemCharacter::OnFindSessionComplete(bool bWasSuccessful)
 			FString MatchType;
 			Findres.Session.SessionSettings.Get(FName("MatchType"), MatchType);
 
-			if (GEngine)
+			/*if (GEngine)
 			{
 				GEngine->AddOnScreenDebugMessage(
 					-1,
@@ -200,11 +200,11 @@ void AMenuSystemCharacter::OnFindSessionComplete(bool bWasSuccessful)
 					FColor::Cyan,
 					FString::Printf(TEXT("Id - %s, User - %s"), *Id, *User)
 				);
-			}
+			}*/
 
 			if (MatchType == "FreeForAll")
 			{
-				if (GEngine)
+				/*if (GEngine)
 				{
 					GEngine->AddOnScreenDebugMessage(
 						-1,
@@ -212,7 +212,7 @@ void AMenuSystemCharacter::OnFindSessionComplete(bool bWasSuccessful)
 						FColor::Cyan,
 						FString::Printf(TEXT("Joining match type - %s"), *MatchType)
 					);
-				}
+				}*/
 			}
 
 			OnlineSessionInterface->AddOnJoinSessionCompleteDelegate_Handle(JoinSessionCompleteDelegate);
@@ -223,7 +223,7 @@ void AMenuSystemCharacter::OnFindSessionComplete(bool bWasSuccessful)
 	}
 	else
 	{
-		if (GEngine)
+		/*if (GEngine)
 		{
 			GEngine->AddOnScreenDebugMessage(
 				-1,
@@ -231,7 +231,7 @@ void AMenuSystemCharacter::OnFindSessionComplete(bool bWasSuccessful)
 				FColor::Cyan,
 				FString::Printf(TEXT("Not Succeded"))
 			);
-		}
+		}*/
 	}
 }
 
@@ -243,7 +243,7 @@ void AMenuSystemCharacter::OnJoinSessionComplete(FName SessionName, EOnJoinSessi
 	FString Address;
 	if (OnlineSessionInterface->GetResolvedConnectString(NAME_GameSession, Address))
 	{
-		if (GEngine)
+		/*if (GEngine)
 		{
 			GEngine->AddOnScreenDebugMessage(
 				-1,
@@ -251,7 +251,7 @@ void AMenuSystemCharacter::OnJoinSessionComplete(FName SessionName, EOnJoinSessi
 				FColor::Yellow,
 				FString::Printf(TEXT("Connect string - %s"), *Address)
 			);
-		}
+		}*/
 
 		APlayerController* PlayerController = GetGameInstance()->GetFirstLocalPlayerController();
 		if (PlayerController)
